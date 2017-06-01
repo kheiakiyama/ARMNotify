@@ -14,6 +14,7 @@ namespace AzureResourcesWasteNotice
         {
             return azure.VirtualMachines
                 .List()
+                .WithoutNoProduction()
                 .Where(q => q.PowerState != PowerState.Deallocated)
                 .Select(q => new AzureResource()
                 {

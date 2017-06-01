@@ -14,6 +14,7 @@ namespace AzureResourcesWasteNotice
         {
             return azure.SqlServers
                 .List()
+                .WithoutNoProduction()
                 .SelectMany(q => q.Databases.List())
                 .Where(q => q.Edition != "")
                 .Select(q => new AzureResource()

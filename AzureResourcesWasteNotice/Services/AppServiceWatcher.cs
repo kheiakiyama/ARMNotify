@@ -17,6 +17,7 @@ namespace AzureResourcesWasteNotice
             return azure.AppServices
                 .AppServicePlans
                 .List()
+                .WithoutNoProduction()
                 .Where(q => q.PricingTier.SkuDescription.Name != PricingTier.FreeF1.SkuDescription.Name)
                 .Select(q => new AzureResource()
                 {
