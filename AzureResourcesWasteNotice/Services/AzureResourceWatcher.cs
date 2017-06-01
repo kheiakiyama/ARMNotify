@@ -4,7 +4,7 @@ using Microsoft.Azure.Management.Fluent;
 
 namespace AzureResourcesWasteNotice
 {
-    public interface IAzureResourceFactory
+    public interface IAzureResourceWatcher
     {
         AzureResource[] Collect(IAzure azure);
     }

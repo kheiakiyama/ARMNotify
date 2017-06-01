@@ -16,7 +16,7 @@ namespace AzureResourcesWasteNotice
         private static IAzureResourceFactory[] GetFactories()
         {
             return new IAzureResourceFactory[] {
-                new VirtualMachineFactory(),
+                new VirtualMachineWatcher(),
             };
         }
     }

@@ -4,9 +4,9 @@ using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.Compute.Fluent;
 namespace AzureResourcesWasteNotice
 {
-    public class VirtualMachineFactory : IAzureResourceFactory
+    public class VirtualMachineWatcher : IAzureResourceWatcher
     {
-        public VirtualMachineFactory()
+        public VirtualMachineWatcher()
         {
         }
 
