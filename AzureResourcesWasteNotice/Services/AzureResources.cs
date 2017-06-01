@@ -17,6 +17,8 @@ namespace AzureResourcesWasteNotice
         {
             return new IAzureResourceWatcher[] {
                 new VirtualMachineWatcher(),
+                new AppServiceWatcher(),
+                new DatabaseWatcher()
             };
         }
     }
