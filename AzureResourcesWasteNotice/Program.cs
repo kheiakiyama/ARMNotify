@@ -12,20 +12,15 @@ namespace AzureResourcesWasteNotice
     {
         static void Main(string[] args)
         {
-			// Authenticate
-			var credentials = SdkContext.AzureCredentialsFactory
-				.FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
-
-			var azure = Azure
-				.Configure()
-				.WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
-				.Authenticate(credentials)
-				.WithDefaultSubscription();
+            // Authenticate
+            var azure = Azure
+                .Authenticate(@".\.credentical.txt")
+                .WithDefaultSubscription();
 
             var items = AzureResources.GetAzureWasteResources(azure);
             foreach (var item in items)
                 Console.WriteLine($"{item.ResourceGroupName} - {item.ResourceTypeName}:{item.Name} - {item.State}");
-            Console.WriteLine("Hello World!");
+            //Console.ReadLine();
         }
     }
 }
