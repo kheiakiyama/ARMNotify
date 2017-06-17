@@ -22,6 +22,9 @@ namespace AzureResourcesWasteNotice
 
             var items = AzureResources.GetAzureWasteResources(azure);
             var msg = "";
+            var subscription = azure.GetCurrentSubscription();
+            msg += $"SubscriptionId: {subscription.SubscriptionId}\n";
+            msg += $"SubscriptionName: {subscription.DisplayName}\n";
             foreach (var item in items)
                 msg += $"{item.ResourceGroupName} - {item.ResourceTypeName}:{item.Name} - {item.State}\n";
             var webhook_url = args[0];
