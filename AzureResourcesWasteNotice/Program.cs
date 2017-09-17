@@ -27,8 +27,13 @@ namespace AzureResourcesWasteNotice
             msg += $"SubscriptionName: {subscription.DisplayName}\n";
             foreach (var item in items)
                 msg += $"{item.ResourceGroupName} - {item.ResourceTypeName}:{item.Name} - {item.State}\n";
+#if DEBUG
+            Console.WriteLine(msg);
+            Console.ReadLine();
+#else
             var webhook_url = args[0];
             PostMessage(webhook_url, $"```{msg}```");
+#endif
         }
 
         private static void PostMessage(string url, string message)
