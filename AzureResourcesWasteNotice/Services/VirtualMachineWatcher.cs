@@ -22,6 +22,7 @@ namespace AzureResourcesWasteNotice
                     Name = q.Name,
 	                ResourceTypeName = q.Type,
 	                State = q.Size.ToString(),
+                    ResourceId = q.Id,
                 })
                 .ToArray();
         }

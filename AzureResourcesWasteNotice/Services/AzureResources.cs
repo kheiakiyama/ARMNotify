@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.Azure.Management.Fluent;
+using Microsoft.Azure.Insights;
 
 namespace AzureResourcesWasteNotice
 {
@@ -21,5 +22,7 @@ namespace AzureResourcesWasteNotice
                 new DatabaseWatcher()
             };
         }
+
+        public static InsightsClient Client { get; internal set; }
     }
 }

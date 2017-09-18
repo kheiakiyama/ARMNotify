@@ -25,6 +25,7 @@ namespace AzureResourcesWasteNotice
                     Name = q.Name,
 	                ResourceTypeName = q.Type,
 	                State = q.PricingTier.SkuDescription.Name,
+                    ResourceId = q.Id,
                 })
                 .ToArray();
         }
