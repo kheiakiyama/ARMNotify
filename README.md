@@ -15,9 +15,25 @@ key={AZURE_SECRET}
 tenant={AZURE_TENANT}
 ```
 
-### How to run
+### Build
 
 ```
-dotnet AzureResourcesWasteNotice.dll {SLACK_WEBHOOK_URL}
+cd HttpTriggerCSharp
+dotnet build
+dotnet publish
 ```
 
+### Debug
+
+```
+cd HttpTriggerCSharp/bin/Debug/netstandard2.0
+func host start
+```
+
+### Deploy to Azure Function
+
+```
+cd HttpTriggerCSharp/bin/Debug/netstandard2.0
+func azure login
+func azure functionapp publish (function app name)
+```

@@ -10,5 +10,5 @@
     }
   ],
   "scriptFile": "../HttpTriggerCore.dll",
-  "entryPoint": "HttpTriggerCore.HttpTrigger.Run"
+  "entryPoint": "AzureResourcesWasteNotice.HttpTrigger.Run"
 }
