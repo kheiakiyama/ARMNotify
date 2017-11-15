@@ -33,10 +33,15 @@ namespace AzureResourcesWasteNotice
             var items = AzureResources.GetAzureWasteResources(azure);
             var msg = "";
             var subscription = azure.GetCurrentSubscription();
+            msg += $"### General";
             msg += $"SubscriptionId: {subscription.SubscriptionId}\n";
             msg += $"SubscriptionName: {subscription.DisplayName}\n";
-            foreach (var item in items)
-                msg += $"{item.ResourceGroupName} - {item.ResourceTypeName}:{item.Name} - {item.GetActivitiesBy()} - {item.State}\n";
+            foreach (var group in items.GroupBy(q => q.ResourceTypeName))
+            {
+                msg += $"\n### {group.Key}";
+                foreach (var item in group)
+                    msg += $"- {item.ResourceGroupName} - {item.Name} - {item.State} - {item.GetActivitiesBy()}\n";
+            }
 
             log.Info(msg);
             var webhook_url = GetEnvironmentVariable("WEBHOOK_URL");
