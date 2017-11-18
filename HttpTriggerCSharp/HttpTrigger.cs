@@ -45,7 +45,8 @@ namespace AzureResourcesWasteNotice
 
             log.Info(msg);
             var webhook_url = GetEnvironmentVariable("WEBHOOK_URL");
-            await PostMessage(webhook_url, $"```{msg}```");
+            if (!string.IsNullOrEmpty(webhook_url))
+                await PostMessage(webhook_url, $"```{msg}```");
             return new OkObjectResult($"Completed!");
 //            return new BadRequestObjectResult("Please pass a name on the query string or in the request body");
         }
