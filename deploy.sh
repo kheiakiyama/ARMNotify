@@ -84,7 +84,7 @@ dotnet restore "HttpTriggerCSharp/HttpTriggerCore.csproj"
 exitWithMessageOnError "dotnet restore failed"
 
 # 2. Build and publish
-dotnet publish "HttpTriggerCSharp/HttpTriggerCore.csproj" --output "$DEPLOYMENT_TEMP" --configuration Release
+dotnet publish "HttpTriggerCSharp/HttpTriggerCore.csproj" --output "$DEPLOYMENT_TEMP" --configuration Debug
 exitWithMessageOnError "dotnet publish failed"
 
 # 3. KuduSync
