@@ -16,7 +16,7 @@ namespace AzureResourcesWasteNotice
                 .List()
                 .WithoutNoProduction()
                 .SelectMany(q => q.Databases.List())
-                .Where(q => q.Edition != "")
+                .Where(q => q.Edition != "" && q.Name != "master")
                 .Select(q => new AzureResource()
                 {
                     ResourceGroupName = q.ResourceGroupName,
