@@ -38,7 +38,7 @@ namespace AzureResourcesWasteNotice
             msg += $"SubscriptionName: {subscription.DisplayName}\n";
             foreach (var group in items.GroupBy(q => q.ResourceTypeName))
             {
-                msg += $"\n### {group.Key}";
+                msg += $"\n### {group.Key}\n";
                 foreach (var item in group)
                     msg += $"- {item.ResourceGroupName} - {item.Name} - {item.State} - {item.GetActivitiesBy()}\n";
             }
