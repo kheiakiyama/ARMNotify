@@ -10,6 +10,9 @@ namespace AzureResourcesWasteNotice
         {
         }
 
+        public string RecommendPolicy => "Create Database when you need";
+
+
         public AzureResource[] Collect(IAzure azure)
         {
             return azure.SqlServers

@@ -10,6 +10,8 @@ namespace AzureResourcesWasteNotice
         {
         }
 
+        public string RecommendPolicy => "Forget to remove not attached disk";
+
         public AzureResource[] Collect(IAzure azure)
         {
             return azure.Disks

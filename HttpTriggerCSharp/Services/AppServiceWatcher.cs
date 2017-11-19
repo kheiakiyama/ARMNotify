@@ -12,6 +12,8 @@ namespace AzureResourcesWasteNotice
         {
         }
 
+        public string RecommendPolicy => "Free Sku is not charged";
+
         public AzureResource[] Collect(IAzure azure)
         {
             return azure.AppServices
