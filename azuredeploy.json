@@ -10,7 +10,7 @@
     },
     "repoURL": {
       "type": "string",
-      "defaultValue": "git@github.com:kheiakiyama/AzureResourcesWasteNotice.git"
+      "defaultValue": "https://github.com/kheiakiyama/AzureResourcesWasteNotice.git"
     },
     "branch": {
       "type": "string",
