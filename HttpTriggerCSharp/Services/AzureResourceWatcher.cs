@@ -12,6 +12,7 @@ namespace AzureResourcesWasteNotice
     public interface IAzureResourceWatcher
     {
         AzureResource[] Collect(IAzure azure);
+        string RecommendPolicy { get; }
     }
 
     public class AzureResource

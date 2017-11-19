@@ -30,17 +30,21 @@ namespace AzureResourcesWasteNotice
             var azure = Azure
                 .Authenticate(credentialFile)
                 .WithDefaultSubscription();
-            var items = AzureResources.GetAzureWasteResources(azure);
+            var factories = AzureResources.GetFactories();
             var msg = "";
             var subscription = azure.GetCurrentSubscription();
             msg += $"### General";
             msg += $"SubscriptionId: {subscription.SubscriptionId}\n";
             msg += $"SubscriptionName: {subscription.DisplayName}\n";
-            foreach (var group in items.GroupBy(q => q.ResourceTypeName))
+            foreach (var factory in factories)
             {
-                msg += $"\n### {group.Key}\n";
-                foreach (var item in group)
-                    msg += $"- {item.ResourceGroupName} - {item.Name} - {item.State} - {item.GetActivitiesBy()}\n";
+                var items = factory.Collect(azure);
+                if (items.Length > 0)
+                {
+                    msg += $"\n### {items[0].ResourceTypeName} - {factory.RecommendPolicy}\n";
+                    foreach (var item in items)
+                        msg += $"- {item.ResourceGroupName} - {item.Name} - {item.State} - {item.GetActivitiesBy()}\n";
+                }
             }
 
             log.Info(msg);

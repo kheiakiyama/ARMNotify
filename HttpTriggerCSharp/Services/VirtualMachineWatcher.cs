@@ -10,6 +10,8 @@ namespace AzureResourcesWasteNotice
         {
         }
 
+        public string RecommendPolicy => "Stopped VM is not charged";
+
         public AzureResource[] Collect(IAzure azure)
         {
             return azure.VirtualMachines
