@@ -8,12 +8,6 @@
         "description": "The name of the function app that you wish to create."
       }
     },
-    "siteLocation": {
-      "type": "string",
-      "metadata": {
-        "description": "The location to use for creating the web app and hosting plan. It must be one of the Azure locations that support web apps."
-      }
-    },
     "repoURL": {
       "type": "string",
       "defaultValue": "git@github.com:kheiakiyama/AzureResourcesWasteNotice.git"
@@ -73,7 +67,7 @@
       "apiVersion": "2015-08-01",
       "name": "[variables('hostingPlanName')]",
       "type": "Microsoft.Web/serverfarms",
-      "location": "[parameters('siteLocation')]",
+      "location": "[resourceGroup().location]",
       "properties": {
       },
       "sku": {
@@ -84,7 +78,8 @@
       "apiVersion": "2015-08-01",
       "name": "[variables('functionAppName')]",
       "type": "Microsoft.Web/sites",
-      "location": "[parameters('siteLocation')]",
+      "kind": "functionapp",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
