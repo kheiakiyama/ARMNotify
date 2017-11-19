@@ -1,23 +1,43 @@
 # AzureResourcesWasteNotice
-AzureResourcesWasteNotice notify Azure payed resources to Slack
+AzureResourcesWasteNotice notify Azure payed resources to WebHookUrl
 
-## Getting Started
+## Requirements
+### Environment Variables
 
-### Authenticating with Azure
-AzureResourcesWasteNotice use Service Principal Credentials.
+- `AZURE_SUBSCRIPTION_ID`  
+Target subscription id
+- `AZURE_TENANT`  
+Azure Active Directory tenant id exist of Service pricipal
+- `AZURE_CLIENT_ID`  
+Service Principal App Id
+- `AZURE_SECRET`  
+Service Principal Password
+- `WEBHOOK_URL`  
+AzureResourcesWasteNotice notify to this URL.  
+Tested webhook is [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks) only.
 
-Please make `.credentical.txt`
+## Debug
+
+### Use azure-functions-cli
 
 ```
-subscription={AZURE_SUBSCRIPTION_ID}
-client={AZURE_CLIENT_ID}
-key={AZURE_SECRET}
-tenant={AZURE_TENANT}
+cd HttpTriggerCSharp/bin/Debug/netstandard2.0
+func host start
 ```
 
-### How to run
+### Use Visual Studio
+
+change `HttpTriggerCoreDebug` to StartUpProject 
+
+### Deploy to Azure Function
 
 ```
-dotnet AzureResourcesWasteNotice.dll {SLACK_WEBHOOK_URL}
+cd HttpTriggerCSharp/bin/Debug/netstandard2.0
+func azure login
+func azure functionapp publish (function app name)
 ```
+
+### References
+#### How to create Service Principal
+- [Create Service Principal by azure-cli](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac) 
 
