@@ -158,7 +158,7 @@
             }
           },
           "actions": {
-            "[variables('functionAppName')]": {
+            "[variables('functionName')]": {
               "type": "Function",
               "inputs": {
                 "function": {
