@@ -50,7 +50,9 @@
   "variables": {
       "functionAppName": "[parameters('appName')]",
       "hostingPlanName": "[concat(parameters('appName'), '-plan')]",
-      "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'functions')]"
+      "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'functions')]",
+      "logicAppName": "[concat(parameters('appName'), '-trigger')]",
+      "functionName": "HttpTriggerCSharp"
   },
   "resources": [
     {
@@ -124,6 +126,66 @@
           }
         }
       ]
+    },
+    {
+      "name": "[variables('logicAppName')]",
+      "type": "Microsoft.Logic/workflows",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2016-06-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', variables('functionAppName'), 'web')]"
+      ],
+      "properties": {
+        "definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "actions": {
+            "Azure_Function": {
+              "type": "Function",
+              "inputs": {
+                "body": "@triggerBody()",
+                "function": {
+                  "id": "[resourceId('Microsoft.Web/sites/functions', variables('functionAppName'), variables('functionName'))]"
+                }
+              },
+              "runAfter": {}
+            },
+            "Response": {
+              "type": "Response",
+              "inputs": {
+                "statusCode": 200,
+                "body": "@body('Azure_Function')"
+              },
+              "runAfter": {
+                "Azure_Function": [
+                  "Succeeded"
+                ]
+              }
+            }
+          },
+          "parameters": {},
+          "triggers": {
+            "Recurrence": {
+              "recurrence": {
+                "frequency": "Week",
+                "interval": 1,
+                "schedule": {
+                  "hours": [
+                    "9"
+                  ],
+                  "weekDays": [
+                    "Monday"
+                  ]
+                },
+                "timeZone": "UTC"
+              },
+              "type": "Recurrence"
+            }
+          },
+          "contentVersion": "1.0.0.0",
+          "outputs": {}
+        },
+        "parameters": {}
+      }
     }
   ],
   "outputs": {
