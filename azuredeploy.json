@@ -138,30 +138,6 @@
       "properties": {
         "definition": {
           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-          "actions": {
-            "Azure_Function": {
-              "type": "Function",
-              "inputs": {
-                "body": "@triggerBody()",
-                "function": {
-                  "id": "[resourceId('Microsoft.Web/sites/functions', variables('functionAppName'), variables('functionName'))]"
-                }
-              },
-              "runAfter": {}
-            },
-            "Response": {
-              "type": "Response",
-              "inputs": {
-                "statusCode": 200,
-                "body": "@body('Azure_Function')"
-              },
-              "runAfter": {
-                "Azure_Function": [
-                  "Succeeded"
-                ]
-              }
-            }
-          },
           "parameters": {},
           "triggers": {
             "Recurrence": {
@@ -179,6 +155,18 @@
                 "timeZone": "UTC"
               },
               "type": "Recurrence"
+            }
+          },
+          "actions": {
+            "[variables('functionAppName')]": {
+              "type": "Function",
+              "inputs": {
+                "function": {
+                  "id": "[resourceId('Microsoft.Web/sites/functions', variables('functionAppName'), variables('functionName'))]"
+                },
+                "method": "POST"
+              },
+              "runAfter": {}
             }
           },
           "contentVersion": "1.0.0.0",
