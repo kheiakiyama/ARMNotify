@@ -1,10 +1,10 @@
 # AzureResourcesWasteNotice
 AzureResourcesWasteNotice notify Azure payed resources to WebHookUrl
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkheiakiyama%2FAzureResourcesWasteNotice%2Fmaster%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fkheiakiyama%2FAzureResourcesWasteNotice%2Fwebhook-to-logicapp%2Fazuredeploy.json" target="_blank">
   <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fkheiakiyama%2FAzureResourcesWasteNotice%2Fmaster%2Fazuredeploy.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fkheiakiyama%2FAzureResourcesWasteNotice%2Fwebhook-to-logicapp%2Fazuredeploy.json" target="_blank">
   <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
