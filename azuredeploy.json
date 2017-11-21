@@ -166,7 +166,7 @@
               "type": "HttpWebhook",
               "inputs": {
                 "subscribe": {
-                  "body": "[concat('@body(', variables('functionName'), ')')]",
+                  "body": "[concat('@body(''', variables('functionName'), ''')')]",
                   "method": "POST",
                   "uri": "[parameters('webhookUrl')]"
                 },
