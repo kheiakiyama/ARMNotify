@@ -105,7 +105,6 @@
             "AZURE_TENANT": "[parameters('azureTenant')]",
             "AZURE_CLIENT_ID": "[parameters('azureClientId')]",
             "AZURE_SECRET": "[parameters('azureSecret')]",
-            "WEBHOOK_URL": "[parameters('webhookUrl')]",
             "FUNCTIONS_EXTENSION_VERSION": "beta",
             "WEBSITE_WEBDEPLOY_USE_SCM": "false"
           }
@@ -158,6 +157,22 @@
             }
           },
           "actions": {
+            "HTTP_Webhook": {
+              "runAfter": {
+                "[variables('functionName')]": [
+                  "Succeeded"
+                ]
+              },
+              "type": "HttpWebhook",
+              "inputs": {
+                "subscribe": {
+                  "body": "@body('[variables('functionName')]')",
+                  "method": "POST",
+                  "uri": "[parameters('webhookUrl')]"
+                },
+                "unsubscribe": {}
+              }
+            },
             "[variables('functionName')]": {
               "type": "Function",
               "inputs": {
