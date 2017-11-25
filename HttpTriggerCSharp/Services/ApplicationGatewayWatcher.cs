@@ -25,7 +25,7 @@ namespace AzureResourcesWasteNotice
                     ResourceGroupName = q.ResourceGroupName,
                     Name = q.Name,
 	                ResourceTypeName = q.Type,
-	                State = $"{q.Sku.Name} - {q.Size.Value}",
+	                State = q.Sku.Name,
                     ResourceId = q.Id,
                 })
                 .ToArray();
