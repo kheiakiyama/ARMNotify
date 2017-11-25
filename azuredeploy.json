@@ -43,7 +43,7 @@
     "webhookUrl" : {
       "type": "string",
       "metadata": {
-        "description": "AzureResourcesWasteNotice notify to this URL. Tested webhook is [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks) only."
+        "description": "AzureResourcesWasteNotice notify to this URL."
       }
     }
   },

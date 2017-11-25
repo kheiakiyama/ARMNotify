@@ -19,9 +19,6 @@ Azure Active Directory tenant id exist of Service pricipal
 Service Principal App Id
 - `AZURE_SECRET`  
 Service Principal Password
-- `WEBHOOK_URL`  
-AzureResourcesWasteNotice notify to this URL.  
-Tested webhook is [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks) only.
 
 ## Debug
 
