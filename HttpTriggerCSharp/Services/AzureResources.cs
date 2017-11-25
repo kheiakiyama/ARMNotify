@@ -14,8 +14,10 @@ namespace AzureResourcesWasteNotice
                 new AppServiceWatcher(),
                 new DatabaseWatcher(),
                 new DiskWatcher(),
+                new RedisWatcher(),
+                new PublicIPWatcher(),
                 new ApplicationGatewayWatcher(),
-                new RedisWatcher()
+                new VirtualNetworkGatewayWatcher()
             };
         }
 
