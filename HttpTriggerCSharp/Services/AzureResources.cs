@@ -10,10 +10,12 @@ namespace AzureResourcesWasteNotice
         public static IAzureResourceWatcher[] GetFactories()
         {
             return new IAzureResourceWatcher[] {
-                new VirtualMachineWatcher(),
-                new AppServiceWatcher(),
-                new DatabaseWatcher(),
-                new DiskWatcher()
+                //new VirtualMachineWatcher(),
+                //new AppServiceWatcher(),
+                //new DatabaseWatcher(),
+                //new DiskWatcher(),
+                new ApplicationGatewayWatcher(),
+                new RedisWatcher()
             };
         }
 
