@@ -4,6 +4,7 @@
   "parameters": {
     "appName": {
       "type": "string",
+      "defaultValue": "AzureResourcesWasteNotice",
       "metadata": {
         "description": "The name of the function app that you wish to create."
       }
