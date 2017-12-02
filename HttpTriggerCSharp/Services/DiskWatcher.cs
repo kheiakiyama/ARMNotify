@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.Compute.Fluent;
-namespace AzureResourcesWasteNotice
+namespace ARMNotify
 {
     public class DiskWatcher : IAzureResourceWatcher
     {

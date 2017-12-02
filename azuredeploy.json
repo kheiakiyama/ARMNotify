@@ -11,7 +11,7 @@
     },
     "repoURL": {
       "type": "string",
-      "defaultValue": "https://github.com/kheiakiyama/AzureResourcesWasteNotice.git"
+      "defaultValue": "https://github.com/kheiakiyama/ARMNotify.git"
     },
     "branch": {
       "type": "string",
@@ -44,7 +44,7 @@
     "webhookUrl" : {
       "type": "string",
       "metadata": {
-        "description": "AzureResourcesWasteNotice notify to this URL."
+        "description": "ARMNotify push notify to this URL."
       }
     }
   },

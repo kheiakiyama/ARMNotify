@@ -1,7 +1,7 @@
 ﻿using Microsoft.Azure.WebJobs.Host;
 using System;
 using System.Diagnostics;
-using AzureResourcesWasteNotice;
+using ARMNotify;
 using System.Threading.Tasks;
 
 namespace HttpTriggerCoreDebug

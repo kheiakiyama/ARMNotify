@@ -10,5 +10,5 @@
     }
   ],
   "scriptFile": "../HttpTriggerCore.dll",
-  "entryPoint": "AzureResourcesWasteNotice.HttpTrigger.Run"
+  "entryPoint": "ARMNotify.HttpTrigger.Run"
 }

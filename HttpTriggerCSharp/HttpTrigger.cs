@@ -15,7 +15,7 @@ using Microsoft.Rest.Azure.Authentication;
 using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Insights;
 
-namespace AzureResourcesWasteNotice
+namespace ARMNotify
 {
     public class HttpTrigger
     {

@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Insights;
 
-namespace AzureResourcesWasteNotice
+namespace ARMNotify
 {
     public class AzureResources
     {

@@ -4,7 +4,7 @@ using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.Compute.Fluent;
 using Microsoft.Azure.Management.AppService.Fluent;
 
-namespace AzureResourcesWasteNotice
+namespace ARMNotify
 {
     public class ApplicationGatewayWatcher : IAzureResourceWatcher
     {

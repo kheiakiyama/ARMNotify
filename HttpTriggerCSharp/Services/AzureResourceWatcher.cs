@@ -7,7 +7,7 @@ using Microsoft.Rest.Azure.OData;
 using Microsoft.Azure.Insights.Models;
 using Microsoft.Azure.Insights;
 
-namespace AzureResourcesWasteNotice
+namespace ARMNotify
 {
     public interface IAzureResourceWatcher
     {
