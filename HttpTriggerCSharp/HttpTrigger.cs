@@ -33,7 +33,7 @@ namespace ARMNotify
             var factories = AzureResources.GetFactories();
             var msg = "";
             var subscription = azure.GetCurrentSubscription();
-            msg += $"### General";
+            msg += $"### General\n";
             msg += $"SubscriptionId: {subscription.SubscriptionId}\n";
             msg += $"SubscriptionName: {subscription.DisplayName}\n";
             foreach (var factory in factories)
