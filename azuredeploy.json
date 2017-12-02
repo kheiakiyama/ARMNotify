@@ -48,9 +48,9 @@
     }
   },
   "variables": {
-      "functionAppName": "[parameters('appName')]",
+      "functionAppName": "[concat(parameters('appName'), uniquestring(resourceGroup().id))]",
       "hostingPlanName": "[concat(parameters('appName'), '-plan')]",
-      "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'functions')]",
+      "storageAccountName": "[concat(parameters('appName'), uniquestring(resourceGroup().id))]",
       "logicAppName": "[concat(parameters('appName'), '-trigger')]",
       "functionName": "HttpTriggerCSharp"
   },
